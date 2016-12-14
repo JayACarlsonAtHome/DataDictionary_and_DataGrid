@@ -1,0 +1,4 @@
+/home/jay/setup/clion-2016.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/jay/ClionProjects/DataDictionary_and_DataGrid
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jay/ClionProjects/DataDictionary_and_DataGrid/cmake-build-debug
