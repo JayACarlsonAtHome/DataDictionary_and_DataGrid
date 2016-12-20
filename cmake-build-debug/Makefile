@@ -123,6 +123,60 @@ DataDictionary_and_DataGrid/fast:
 	$(MAKE) -f CMakeFiles/DataDictionary_and_DataGrid.dir/build.make CMakeFiles/DataDictionary_and_DataGrid.dir/build
 .PHONY : DataDictionary_and_DataGrid/fast
 
+DataColumnHeader.o: DataColumnHeader.cpp.o
+
+.PHONY : DataColumnHeader.o
+
+# target to build an object file
+DataColumnHeader.cpp.o:
+	$(MAKE) -f CMakeFiles/DataDictionary_and_DataGrid.dir/build.make CMakeFiles/DataDictionary_and_DataGrid.dir/DataColumnHeader.cpp.o
+.PHONY : DataColumnHeader.cpp.o
+
+DataColumnHeader.i: DataColumnHeader.cpp.i
+
+.PHONY : DataColumnHeader.i
+
+# target to preprocess a source file
+DataColumnHeader.cpp.i:
+	$(MAKE) -f CMakeFiles/DataDictionary_and_DataGrid.dir/build.make CMakeFiles/DataDictionary_and_DataGrid.dir/DataColumnHeader.cpp.i
+.PHONY : DataColumnHeader.cpp.i
+
+DataColumnHeader.s: DataColumnHeader.cpp.s
+
+.PHONY : DataColumnHeader.s
+
+# target to generate assembly for a file
+DataColumnHeader.cpp.s:
+	$(MAKE) -f CMakeFiles/DataDictionary_and_DataGrid.dir/build.make CMakeFiles/DataDictionary_and_DataGrid.dir/DataColumnHeader.cpp.s
+.PHONY : DataColumnHeader.cpp.s
+
+DataDictionary.o: DataDictionary.cpp.o
+
+.PHONY : DataDictionary.o
+
+# target to build an object file
+DataDictionary.cpp.o:
+	$(MAKE) -f CMakeFiles/DataDictionary_and_DataGrid.dir/build.make CMakeFiles/DataDictionary_and_DataGrid.dir/DataDictionary.cpp.o
+.PHONY : DataDictionary.cpp.o
+
+DataDictionary.i: DataDictionary.cpp.i
+
+.PHONY : DataDictionary.i
+
+# target to preprocess a source file
+DataDictionary.cpp.i:
+	$(MAKE) -f CMakeFiles/DataDictionary_and_DataGrid.dir/build.make CMakeFiles/DataDictionary_and_DataGrid.dir/DataDictionary.cpp.i
+.PHONY : DataDictionary.cpp.i
+
+DataDictionary.s: DataDictionary.cpp.s
+
+.PHONY : DataDictionary.s
+
+# target to generate assembly for a file
+DataDictionary.cpp.s:
+	$(MAKE) -f CMakeFiles/DataDictionary_and_DataGrid.dir/build.make CMakeFiles/DataDictionary_and_DataGrid.dir/DataDictionary.cpp.s
+.PHONY : DataDictionary.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +213,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DataDictionary_and_DataGrid"
+	@echo "... DataColumnHeader.o"
+	@echo "... DataColumnHeader.i"
+	@echo "... DataColumnHeader.s"
+	@echo "... DataDictionary.o"
+	@echo "... DataDictionary.i"
+	@echo "... DataDictionary.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

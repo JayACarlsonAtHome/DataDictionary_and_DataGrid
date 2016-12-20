@@ -84,6 +84,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataColumnHeader.cpp">
+			<Option target="DataDictionary_and_DataGrid"/>
+		</Unit>
+		<Unit filename="/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataColumnHeader.h">
+			<Option target="DataDictionary_and_DataGrid"/>
+		</Unit>
+		<Unit filename="/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataDictionary.cpp">
+			<Option target="DataDictionary_and_DataGrid"/>
+		</Unit>
+		<Unit filename="/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataDictionary.h">
+			<Option target="DataDictionary_and_DataGrid"/>
+		</Unit>
 		<Unit filename="/home/jay/ClionProjects/DataDictionary_and_DataGrid/LICENSE">
 			<Option target="DataDictionary_and_DataGrid"/>
 		</Unit>

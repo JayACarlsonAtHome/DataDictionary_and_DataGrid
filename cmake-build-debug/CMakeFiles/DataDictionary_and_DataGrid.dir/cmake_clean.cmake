@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DataDictionary_and_DataGrid.dir/main.cpp.o"
+  "CMakeFiles/DataDictionary_and_DataGrid.dir/DataDictionary.cpp.o"
+  "CMakeFiles/DataDictionary_and_DataGrid.dir/DataColumnHeader.cpp.o"
   "DataDictionary_and_DataGrid.pdb"
   "DataDictionary_and_DataGrid"
 )

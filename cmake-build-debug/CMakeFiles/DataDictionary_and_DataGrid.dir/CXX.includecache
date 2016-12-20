@@ -6,7 +6,35 @@
 
 #IncludeRegexTransform: 
 
+/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataColumnHeader.cpp
+DataColumnHeader.h
+/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataColumnHeader.h
+
+/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataColumnHeader.h
+iostream
+-
+
+/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataDictionary.cpp
+DataColumnHeader.h
+/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataColumnHeader.h
+DataDictionary.h
+/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataDictionary.h
+
+/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataDictionary.h
+algorithm
+-
+vector
+-
+iomanip
+-
+DataColumnHeader.h
+/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataColumnHeader.h
+
 /home/jay/ClionProjects/DataDictionary_and_DataGrid/main.cpp
 iostream
 -
+iomanip
+-
+DataDictionary.h
+/home/jay/ClionProjects/DataDictionary_and_DataGrid/DataDictionary.h
 
