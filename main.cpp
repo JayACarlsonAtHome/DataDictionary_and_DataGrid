@@ -34,70 +34,73 @@ int main() {
 
     test_number++; // 1
     DataColumnHeader* dch = new DataColumnHeader(14, "Header 1", "This is a sample header", "This is a sample header"  );
-    std::string str_dch = dch->GetColumnHeader();
-    unsigned int dch_width = dch->GetDisplayWidth();
+    std::string str_dch = dch->Get_ColumnHeader();
+    unsigned int dch_width = dch->Get_DisplayWidth();
     std::cout << std::endl;
     enum_test_result result = enum_test_result::good;
-    show_test_and_results(test_number, "Make New DataColumnHeader ", results, result);
+    std::string test_name = "Make New DataColumnHeader ";
+    show_test_and_results(test_number, test_name, results, result);
 
     test_number++; // 2
-    std::cout << dch->GetColumnHeader() << ":  "; dch->Display_Address();
+    std::cout << dch->Get_ColumnHeader() << ":  "; dch->Display_Address();
     std::cout << std::endl;
     result = enum_test_result::good;
-    show_test_and_results(test_number, "Show Address ", results, result);
+    test_name = "Show Address ";
+    show_test_and_results(test_number, test_name, results, result);
 
     test_number++; // 3
-    std::string str_cds = dch->GetColumnDescriptionShort();
-    std::string str_cdl = dch->GetColumnDescriptionLong();
+    std::string str_cds = dch->Get_ColumnDescriptionShort();
+    std::string str_cdl = dch->Get_ColumnDescriptionLong();
     result = enum_test_result::good;
-    show_test_and_results(test_number, "Get descriptions", results, result);
-
-    dch->Set_ColumnDescriptionLong( "Setting Column Description Long");
+    test_name = "Get descriptions";
+    show_test_and_results(test_number, test_name, results, result);
 
     test_number++; // 4
     dch->Set_DisplayWidth(20);
     dch->Set_ColumnDescriptionShort("Setting Column Description Short");
-    if (dch->GetColumnDescriptionShort() == "Setting Column Descr")
+    if (dch->Get_ColumnDescriptionShort() == "Setting Column Descr")
     {
         result = enum_test_result::good;
     }
     else
     {
         result = enum_test_result::unknown;
-        std::cout << "Short Description: " << dch->GetColumnDescriptionShort();
+        std::cout << "Short Description: " << dch->Get_ColumnDescriptionShort();
     }
-    show_test_and_results(test_number, "Set and Get Short Description", results, result);
+    test_name = "Set and Get Short Description ";
+    show_test_and_results(test_number, test_name, results, result);
 
-    test_number++;
+    test_number++; // 5
     dch->Set_DisplayWidth(40);
     dch->Set_ColumnDescriptionShort("Setting Column Description Short");
-    if (dch->GetColumnDescriptionShort() == "Setting Column Description Short")
+    if (dch->Get_ColumnDescriptionShort() == "Setting Column Description Short")
     {
         result = enum_test_result::good;
     }
     else
     {
         result = enum_test_result::unknown;
-        std::cout << "Short Description: " << dch->GetColumnDescriptionShort() << std::endl;
+        std::cout << "Short Description: " << dch->Get_ColumnDescriptionShort() << std::endl;
     }
-    show_test_and_results(test_number, "Set and Get Short Description Test 2", results, result);
+    test_name = "Set and Get Short Description Test 2 ";
+    show_test_and_results(test_number, test_name, results, result);
 
-
-    test_number++;
+    test_number++; // 6
     dch->Set_DisplayWidth(20);
     dch->Set_ColumnDescriptionLong("Setting Column Description Long");
-    if (dch->GetColumnDescriptionLong() == "Setting Column Description Long")
+    if (dch->Get_ColumnDescriptionLong() == "Setting Column Description Long")
     {
         result = enum_test_result::good;
     }
     else
     {
         result = enum_test_result::unknown;
-        std::cout << "Long Description: " << dch->GetColumnDescriptionLong() << std::endl;
+        std::cout << "Long Description: " << dch->Get_ColumnDescriptionLong() << std::endl;
     }
-    show_test_and_results(test_number, "Set and Get Long  Description", results, result);
+    test_name = "Set and Get Long  Description ";
+    show_test_and_results(test_number, test_name, results, result);
 
-    test_number++;
+    test_number++; // 7
     DataDictionary dd = DataDictionary();
     if (&dd > 0) {
         result = enum_test_result::good;
@@ -105,9 +108,17 @@ int main() {
         result = enum_test_result::unknown;
     }
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
-    show_test_and_results(test_number, "Create DataDictionary", results, result);
+    test_name = "Create DataDictionary ";
+    show_test_and_results(test_number, test_name, results, result);
 
-    test_number++;
+    test_number++; // 8
+    result = enum_test_result::good;
+    dd.Show_DataDictionaryAll();
+    test_name = "Show DataDictionary after creation ";
+    show_test_and_results(test_number, test_name, results, result);
+
+
+    test_number++; // 9
     dd.Add_Column(dch);
     if (dd.Get_Size() == 1) {
         result = enum_test_result::good;
@@ -115,9 +126,10 @@ int main() {
         result = enum_test_result::unknown;
     }
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
-    show_test_and_results(test_number, "Add First Column to Data Dictionary", results, result);
+    test_name = "Show empty data dictionary";
+    show_test_and_results(test_number, test_name, results, result);
 
-    test_number++;
+    test_number++; // 10
     dd.Add_Column(dch);
     if (dd.Get_Size() == 1) {
         result = enum_test_result::good;
@@ -126,9 +138,10 @@ int main() {
 
     }
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
-    show_test_and_results(test_number, "Add Duplicate First Column to Data Dictionary", results, result);
+    test_name = "Add Duplicate First Column to Data Dictionary ";
+    show_test_and_results(test_number, test_name, results, result);
 
-    test_number++;
+    test_number++; // 11
     dd.Add_Column(dch);
     if (dd.Get_Size() == 1) {
         result = enum_test_result::good;
@@ -137,10 +150,11 @@ int main() {
 
     }
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
-    show_test_and_results(test_number, "Add Duplicate First Column to Data Dictionary", results, result);
+    test_name = "Add Duplicate First Column to Data Dictionary ";
+    show_test_and_results(test_number, test_name, results, result);
 
 
-    test_number++;
+    test_number++; // 12
     DataColumnHeader* dch2 = new DataColumnHeader(*dch);
     dch2->Set_ColumnHeader("Header 2");
     dd.Add_Column(dch2);
@@ -151,10 +165,10 @@ int main() {
 
     }
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
-    show_test_and_results(test_number, "Add Header 2 to Data Dictionary", results, result);
+    test_name = "Add Header 2 to Data Dictionary";
+    show_test_and_results(test_number, test_name, results, result);
 
-
-    test_number++;
+    test_number++; // 13
     DataColumnHeader* dch3 = new DataColumnHeader(*dch);
     dch3->Set_ColumnHeader("Header 3");
     dd.Add_Column(dch3);
@@ -162,12 +176,12 @@ int main() {
         result = enum_test_result::good;
     } else {
         result = enum_test_result::unknown;
-
     }
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
-    show_test_and_results(test_number, "Add Header 3 to Data Dictionary", results, result);
+    test_name = "Add Header 3 to Data Dictionary ";
+    show_test_and_results(test_number, test_name, results, result);
 
-    test_number++;
+    test_number++; // 14
     dd.Add_Column(dch3);
     if (dd.Get_Size() == 3) {
         result = enum_test_result::good;
@@ -176,17 +190,13 @@ int main() {
 
     }
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
-    show_test_and_results(test_number, "Add Header 3 (Duplicate) to Data Dictionary", results, result);
-
-    test_number++;
-    std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
-    dd.Show_DataDictionary("", 0, dd.Get_Size());
-    result = enum_test_result::good;
-    show_test_and_results(test_number, "Show Data Dictionary", results, result);
+    test_name = "Add Header 3 (Duplicate) to Data Dictionary ";
+    show_test_and_results(test_number, test_name, results, result);
 
 
-    test_number++;
-    dd.Add_DataGrid("Space Ships List");
+    test_number++; // 15
+    std::string DataGridNumber1 = "Space Ship List";
+    dd.Add_DataGrid(DataGridNumber1);
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
     unsigned int count = dd.Get_CountofDataGrids();
     std::cout << "dd.Get_CountofDataGrids: " << count << std::endl;
@@ -196,11 +206,12 @@ int main() {
     {
         result = enum_test_result::unknown;
     }
-    show_test_and_results(test_number, "Add DataGrid Space Ship List", results, result);
+    test_name = "Add DataGrid " + DataGridNumber1;
+    show_test_and_results(test_number, test_name, results, result);
 
 
-    test_number++;
-    dd.Add_DataGrid("Space Ships List");
+    test_number++; // 16
+    dd.Add_DataGrid(DataGridNumber1);
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
     count = dd.Get_CountofDataGrids();
     std::cout << "dd.Get_CountofDataGrids: " << count << std::endl;
@@ -210,10 +221,28 @@ int main() {
     {
         result = enum_test_result::unknown;
     }
-    show_test_and_results(test_number, "Add DataGrid (Duplicate) Space Ship List", results, result);
+    test_name = "Add DataGrid (Duplicate) " + DataGridNumber1;
+    show_test_and_results(test_number, test_name,  results, result);
 
-    test_number++;
-    dd.Add_DataGrid("Space Ship Weapons List");
+
+    test_number++; // 17
+    std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
+    count = dd.Get_CountofDataGrids();
+    std::cout << "dd.Get_CountofDataGrids: " << count << std::endl;
+    if (count == 1) {
+        result = enum_test_result::good;
+    } else
+    {
+        result = enum_test_result::unknown;
+    }
+    dd.Show_DataDictionary(DataGridNumber1, 0, 5);
+    test_name = "Show Datagrid " + DataGridNumber1 + " before adding columns ";
+    show_test_and_results(test_number, test_name,  results, result);
+
+
+    test_number++; // 18
+    std::string DataGridNumber2 = "Space Ship Weapons List";
+    dd.Add_DataGrid(DataGridNumber2);
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
     count = dd.Get_CountofDataGrids();
     std::cout << "dd.Get_CountofDataGrids: " << count << std::endl;
@@ -223,10 +252,12 @@ int main() {
     {
         result = enum_test_result::unknown;
     }
-    show_test_and_results(test_number, "Add DataGrid Space Ship Weapons List", results, result);
+    test_name = "Add DataGrid " + DataGridNumber2;
+    show_test_and_results(test_number, test_name, results, result);
 
-    test_number++;
-    dd.Add_DataGrid("Enemy Space Ship Weapons List");
+    test_number++; // 19
+    std::string DataGridNumber3 = "Enemy Space Ship Weapons List";
+    dd.Add_DataGrid(DataGridNumber3);
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
     count = dd.Get_CountofDataGrids();
     std::cout << "dd.Get_CountofDataGrids: " << count << std::endl;
@@ -236,10 +267,12 @@ int main() {
     {
         result = enum_test_result::unknown;
     }
-    show_test_and_results(test_number, "Add DataGrid Enemy Ship Weapons List", results, result);
+    test_name = "Add DataGrid " + DataGridNumber3;
+    show_test_and_results(test_number, test_name, results, result);
 
-    test_number++;
-    dd.Add_DataGrid("Quadrant List");
+    test_number++; // 20
+    std::string DataGridNumber4 = "Quadrant List";
+    dd.Add_DataGrid(DataGridNumber4);
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
     count = dd.Get_CountofDataGrids();
     std::cout << "dd.Get_CountofDataGrids: " << count << std::endl;
@@ -249,13 +282,16 @@ int main() {
     {
         result = enum_test_result::unknown;
     }
-    show_test_and_results(test_number, "Add DataGrid Quadrant List", results, result);
+    test_name = "Add DataGrid " + DataGridNumber4;
+    show_test_and_results(test_number, test_name, results, result);
 
-    test_number++;
-    dd.Add_DataGridColumn("Space Ship List", "Header 1");
+    test_number++; // 21
+    dd.Add_DataGridColumn(DataGridNumber1, "Header 1");
+    dd.Add_DataGridColumn(DataGridNumber1, "Header 2");
+    dd.Add_DataGridColumn(DataGridNumber1, "Header 3");
     std::cout << "dd.Get_Size(): " << dd.Get_Size() << std::endl;
     count = dd.Get_CountofDataGrids();
-    dd.Show_DataDictionary("Space Ship List", 0, 5);
+    dd.Show_DataDictionary(DataGridNumber1, 0, 5);
     std::cout << "dd.Get_CountofDataGrids: " << count << std::endl;
     if (count == 4) {
         result = enum_test_result::good;
@@ -263,14 +299,19 @@ int main() {
     {
         result = enum_test_result::unknown;
     }
-    show_test_and_results(test_number, "Add DataGrid Quadrant List", results, result);
+    test_name = "Add DataGridColumn Header 1, Header 2, Header 3,  to " + DataGridNumber1;
+    show_test_and_results(test_number, test_name, results, result);
 
+    std::cout << "Show_DataDictionaryAll()" << std::endl;
+    dd.Show_DataDictionaryAll();
+
+    std::cout << "Results Summary of All Tests" << std::endl;
+
+    delete(dch);
+    delete(dch2);
+    delete(dch3);
 
     show_total_results(results);
-
-
-
-
 
     return 0;
 }

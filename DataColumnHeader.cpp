@@ -4,20 +4,34 @@
 
 #include "DataColumnHeader.h"
 
+//
+// private methods
+//
+
+
+//
+// public methods
+//
+
 DataColumnHeader::DataColumnHeader()
 {
-    m_address = this;
     this->m_display_width = 14; // default width;
     this->m_column_header = "Default Header";
     this->m_column_description_short = "Default Short Description";
     this->m_column_description_long  = "Default Long  Description";
 }
 
-
+//copy constructor
+DataColumnHeader::DataColumnHeader(const DataColumnHeader &dch)
+{
+    this->m_display_width = dch.m_display_width;
+    this->m_column_header = dch.m_column_header;
+    this->m_column_description_short = dch.m_column_description_short;
+    this->m_column_description_long  = dch.m_column_description_long;
+}
 
 DataColumnHeader::DataColumnHeader(int display_width, std::string column_header, std::string column_description_short, std::string column_description_long)
 {
-    m_address = this;
     Init(     display_width
             , column_header
             , column_description_short
@@ -25,17 +39,30 @@ DataColumnHeader::DataColumnHeader(int display_width, std::string column_header,
         );
 }
 
-//copy constructor
-DataColumnHeader::DataColumnHeader(const DataColumnHeader &dch)
+std::string DataColumnHeader::Get_ColumnDescriptionLong()
 {
-    m_address = this;
-    this->m_display_width = dch.m_display_width;
-    this->m_column_header = dch.m_column_header;
-    this->m_column_description_short = dch.m_column_description_short;
-    this->m_column_description_long  = dch.m_column_description_long;
+    return this->m_column_description_long;
 }
 
+std::string DataColumnHeader::Get_ColumnDescriptionShort()
+{
+    return this->m_column_description_short;
+}
 
+std::string DataColumnHeader::Get_ColumnHeader()
+{
+    return this->m_column_header;
+}
+
+unsigned int DataColumnHeader::Get_DisplayWidth()
+{
+    return this->m_display_width;
+}
+
+void DataColumnHeader::Display_Address()
+{
+    std::cout << this << std::endl;
+}
 
 void DataColumnHeader::Init(int display_width, std::string column_header, std::string column_description_short, std::string column_description_long)
 {
@@ -44,28 +71,6 @@ void DataColumnHeader::Init(int display_width, std::string column_header, std::s
     Set_ColumnHeader(column_header);
     Set_ColumnDescriptionShort(column_description_short);
     Set_ColumnDescriptionLong( column_description_long);
-}
-
-
-
-std::string DataColumnHeader::GetColumnHeader()
-{
-    return this->m_column_header;
-}
-
-int DataColumnHeader::GetDisplayWidth()
-{
-    return this->m_display_width;
-}
-
-std::string DataColumnHeader::GetColumnDescriptionShort()
-{
-    return this->m_column_description_short;
-}
-
-std::string DataColumnHeader::GetColumnDescriptionLong()
-{
-    return this->m_column_description_long;
 }
 
 void DataColumnHeader::Set_ColumnHeader(std::string value)
@@ -77,6 +82,13 @@ void DataColumnHeader::Set_ColumnHeader(std::string value)
     else
     {
         m_column_header = value;
+    }
+}
+
+void DataColumnHeader::Set_ColumnDescriptionLong( std::string value)
+{
+    {
+        m_column_description_long = value;
     }
 }
 
@@ -92,19 +104,8 @@ void DataColumnHeader::Set_ColumnDescriptionShort(std::string value)
     }
 }
 
-void DataColumnHeader::Set_ColumnDescriptionLong( std::string value)
-{
-    {
-        m_column_description_long = value;
-    }
-}
-
 void DataColumnHeader::Set_DisplayWidth(unsigned int value)
 {
     m_display_width = value;
 }
 
-void DataColumnHeader::Display_Address()
-{
-    std::cout << this << std::endl;
-}

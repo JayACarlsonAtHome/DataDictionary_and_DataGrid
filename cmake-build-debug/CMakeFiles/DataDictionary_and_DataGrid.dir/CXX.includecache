@@ -27,6 +27,8 @@ vector
 -
 iomanip
 -
+stdexcept
+-
 DataColumnHeader.h
 /home/jay/ClionProjects/DataDictionary_and_DataGrid/DataColumnHeader.h
 
